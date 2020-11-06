@@ -7,9 +7,12 @@ To enforce SSL on the server, a new *parameter group* was created and assigned w
 
 ## Register the adapter
 Register the adapter either through the DP Agent client, or using the following statement in HANA:
+```
 CREATE ADAPTER "PostgreSQLLogReaderAdapter" AT LOCATION AGENT "<AGENT_NAME>";
+```
 
 ## Create Remote Source on HANA
+```
 DROP REMOTE SOURCE "RS_POSTGRES" CASCADE;
 CREATE REMOTE SOURCE "RS_POSTGRES"
 	ADAPTER "PostgreSQLLogReaderAdapter" AT LOCATION AGENT "<AGENT_NAME>"
@@ -52,6 +55,7 @@ CREATE REMOTE SOURCE "RS_POSTGRES"
 WITH CREDENTIAL TYPE 'PASSWORD'
 USING '<CredentialEntry name="credential"><user>postgres</user>
 <password><PASS_WORD></password></CredentialEntry>';
+```
 
 ## Test replication
 Create a table in Postgres
